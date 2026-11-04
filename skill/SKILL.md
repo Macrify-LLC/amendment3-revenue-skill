@@ -16,7 +16,7 @@ You are helping someone (a local government attorney, finance director, manager,
 3. **Every number has a source.** Cite the document, page or table for each figure (adopted budget, TRIM notice, tax roll file, rate resolution). If you estimated something, say "estimate," give the method, and show the inputs. Never invent a rate, a cost, a parcel count or a percentage. If a number you need isn't available, add it to the staff data request list (`templates/11-staff-data-requests.md`) and carry on with the rest.
 4. **Show who pays more and who pays less.** Assessments and fees are not covered by the homestead exemption ("except assessments for special benefits," Art. VII, § 6(a)). A replacement charge moves the cost back onto homesteads, and from property value onto parcels, units or square feet. Always compare, for typical properties, the property tax saved under Amendment 3 with the new charges, and include tax-exempt parcels (churches, nonprofits, governments) that a new assessment might reach. Use `scripts/incidence.py`.
 5. **Respect the calendar.** Collecting a new assessment on the tax bill requires a resolution of intent before January 1, or March 1 if the property appraiser and tax collector agree (s. 197.3632(3)(a)). Check today's date against that deadline at the start and say what is still achievable.
-6. **Drafts are drafts.** Every document you produce is a starting draft for counsel, with bracketed blanks for facts you do not have. Do not fill blanks with plausible-looking guesses.
+6. **Fill in what you can; flag what you can't.** Every document is a starting draft for counsel, but it should be as complete as the record allows. Fill each blank from what the conversation has already established (decisions, the Phase 2 numbers, the chosen package, the calendar) or from a public source you can cite (the government's charter, code, adopted budget, website, past agendas). Mark a filled-in fact that should be double-checked `[[CONFIRM: value]]`. Leave a `[BRACKETED]` blank only for a fact you could not find, and never fill one with a plausible-looking guess. In the drafting notes, list where each filled-in fact came from.
 7. **Verify the law is current.** The references in this skill were checked on the date shown in each file. Before relying on a statute or case, check that it has not been amended or overruled since then (search the web if you can), and tell the user which items you could and could not re-verify.
 8. **Write for a general reader.** Assume the user is not a lawyer, accountant or budget analyst, even if they are, unless they ask for technical detail. Use short sentences and everyday words. Explain a term the first time you use it ("millage" is the property tax rate; "special assessment" is a charge on a property for a service that benefits it). Lead with what it means for residents and the budget, then give the detail. Put citations in parentheses or notes at the end, not in the middle of the explanation. The adopting documents themselves must use proper legal form. Give each one a short plain-language summary.
 9. **Keep the decision log.** Every time the user decides something, add it to the decision log (`templates/00-decision-log.md`) with the date, the options, and the reason in the user's own words. Never record a decision the user didn't make.
@@ -82,7 +82,14 @@ Start from the Phase 3 decision table. The money to raise is (a) the cost of pro
 
 ### Phase 5: Draft the documents
 
-For each selected tool, draft from `templates/` (see `templates/README.md` for which documents each tool needs). Fill in every fact you have a source for. Leave a `[BRACKETED]` blank for every fact you don't. Mark every legal conclusion `[COUNSEL DETERMINATION]`. Give each document a two- or three-sentence plain-language summary at the top. Typical package for a new fire assessment collected on the tax bill:
+For each selected tool, draft from `templates/` (see `templates/README.md` for which documents each tool needs). Give each document a two- or three-sentence plain-language summary at the top (a `>` block).
+
+**First, fill the blanks.** The templates are full of blanks. A draft that comes back with most of them still empty isn't much help, so before writing, gather the facts that fill them and resolve every `{City|County}` choice:
+- **From this conversation:** the government's name and type, the dollar figures and sources from Phase 2, the service, cost base, categories and rates from the chosen package, exemptions and buy-downs, and the dates from the calendar (hearing dates, the four publication dates, the transmittal deadline, fiscal years).
+- **From public sources** (search the web or the documents the user gave you): the exact legal name and charter citation; the governing body's name ("City Commission," "Board of County Commissioners"); the county; the property appraiser and tax collector; the clerk's title; where the government publishes legal notices (newspaper or website under s. 50.0311); its regular meeting place and time; how it numbers ordinances and resolutions; the code chapter where a new ordinance would go; and the existing ordinances or agreements it should cite.
+- **Ask the user** for anything that only they can supply, in one short list per document, and add what staff must supply to the staff data requests.
+
+Then draft. Mark every legal conclusion `[COUNSEL DETERMINATION]`. Mark a filled-in fact the user should double-check (a date you calculated, a name from a web page that may be out of date) `[[CONFIRM: value]]`. Leave `[BRACKETS]` only for what you still couldn't find. End each document's drafting notes with a short **Sources for filled-in facts** table (fact, value, source). Typical package for a new fire assessment collected on the tax bill:
 
 - Resolution of intent to use the uniform method, and its published notice (s. 197.3632(3)(a))
 - Master assessment ordinance
@@ -96,6 +103,9 @@ For each selected tool, draft from `templates/` (see `templates/README.md` for w
 For a user fee: the fee ordinance or resolution, a cost-of-service study outline, and the business impact estimate. Always: the staff data request list, and the letter to other governments if Phase 2 found shared-service losses.
 
 **File format:** produce the documents as Word (.docx) files if the platform can create files (attorneys will edit them in Word), named so they sort in adoption order (e.g. `01 Resolution of Intent.docx`). Otherwise give them as clearly separated text the user can paste.
+- **Preferred:** write each document in Markdown following the template syntax, then run `python scripts/make_docx.py draft.md "01 Resolution of Intent.docx"` (standard library only). It uses Word's own list numbering for SECTION 1, 2, 3…, subsections (a), (b), (c) and bullets, so they renumber when someone edits the document. It highlights open items: yellow for a fact still to fill, turquoise for a counsel determination, green for a filled-in fact to confirm. It prints the count of each and the list of yellow items.
+- **If you use another tool to make the .docx**, meet the same standard. Use Word's built-in numbering and bullet lists, never typed "1.", "(a)" or "•" characters. Apply the same three highlight colors. Use real Word tables for rate schedules.
+- After each document, tell the user in one line how many blanks are left, how many counsel determinations there are, and how many facts to confirm. Ask for the missing facts you can get from them.
 
 ### Phase 6: Package
 
@@ -107,7 +117,7 @@ Put together a single plan memo, written so a resident could follow it:
 5. Each new fee or assessment: what it pays for, what it costs typical properties, and when it starts.
 6. Who pays more and who pays less.
 7. The calendar.
-8. The documents, the staff data requests, and every `[COUNSEL DETERMINATION]` and `[BRACKETED]` item still open.
+8. The documents, the staff data requests, and every `[COUNSEL DETERMINATION]`, `[BRACKETED]` and `[[CONFIRM]]` item still open (`make_docx.py` prints them).
 
 ## Files
 
@@ -121,4 +131,5 @@ Put together a single plan memo, written so a resident could follow it:
 - `references/nal-fields.md`: the DOR tax roll fields these scripts use.
 - `scripts/exemption_impact.py`: parcel-level calculator for the exemption's impact (`--list-tax-auth`, `--extract`).
 - `scripts/incidence.py`: revenue and who-pays-more/less for a proposed package of charges.
+- `scripts/make_docx.py`: turns a Markdown draft into a Word file with Word's own numbering and bullets, and highlighted open items.
 - `templates/`: the decision log, staff data requests, the letter to other governments, and starting drafts of the adopting documents.

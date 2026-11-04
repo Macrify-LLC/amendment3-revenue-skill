@@ -1,4 +1,4 @@
-RESOLUTION NO. [____]
+# RESOLUTION NO. [____]
 
 A RESOLUTION OF THE [GOVERNING BODY] OF THE {CITY|COUNTY} OF [NAME], FLORIDA, STATING ITS INTENT TO USE THE UNIFORM METHOD OF COLLECTING NON-AD VALOREM ASSESSMENTS FOR [FIRE RESCUE SERVICES / SOLID WASTE SERVICES / STORMWATER SERVICES / DESCRIBE] WITHIN [THE INCORPORATED AREA OF THE CITY / DESCRIBE AREA], AS AUTHORIZED BY SECTION 197.3632, FLORIDA STATUTES; STATING THE NEED FOR THE LEVY; PROVIDING A LEGAL DESCRIPTION OF THE BOUNDARIES OF THE REAL PROPERTY SUBJECT TO THE LEVY; DIRECTING TRANSMITTAL OF THIS RESOLUTION; AND PROVIDING AN EFFECTIVE DATE.
 
@@ -18,21 +18,21 @@ WHEREAS, the [Governing Body] held a duly noticed public hearing on [DATE, befor
 
 NOW, THEREFORE, BE IT RESOLVED BY THE [GOVERNING BODY] OF THE {CITY|COUNTY} OF [NAME], FLORIDA:
 
-SECTION 1. RECITALS. The recitals above are true and correct and are incorporated into this Resolution.
+§ **RECITALS.** The recitals above are true and correct and are incorporated into this Resolution.
 
-SECTION 2. INTENT TO USE UNIFORM METHOD. The {City|County} intends to use the uniform method of collecting non-ad valorem assessments authorized by Section 197.3632, Florida Statutes, to levy and collect assessments for [service] beginning with the [YEAR] tax bill, and in each later year until it discontinues use of the uniform method under Section 197.3632(6), Florida Statutes.
+§ **INTENT TO USE UNIFORM METHOD.** The {City|County} intends to use the uniform method of collecting non-ad valorem assessments authorized by Section 197.3632, Florida Statutes, to levy and collect assessments for [service] beginning with the [YEAR] tax bill, and in each later year until it discontinues use of the uniform method under Section 197.3632(6), Florida Statutes.
 
-SECTION 3. NEED FOR THE LEVY. The levy is needed to fund the cost of providing [service], which [COUNSEL DETERMINATION: describe the special benefit to property, e.g., "protects real property from fire and enhances its use and enjoyment"], and to keep that service at its current level after the reduction in ad valorem revenue caused by the amended homestead exemption.
+§ **NEED FOR THE LEVY.** The levy is needed to fund the cost of providing [service], which [COUNSEL DETERMINATION: describe the special benefit to property, e.g., "protects real property from fire and enhances its use and enjoyment"], and to keep that service at its current level after the reduction in ad valorem revenue caused by the amended homestead exemption.
 
-SECTION 4. BOUNDARIES. The real property subject to the levy is all real property within [the incorporated area of the City / DESCRIBE], whose legal description is set out in **Exhibit A**. [Exhibit A: legal description of the boundaries, e.g., the City's boundaries as described in its charter and annexation ordinances, or a metes-and-bounds description. Do not use a map alone.] The {City|County} may exempt or exclude parcels as provided in the assessment ordinance and resolutions adopted later.
+§ **BOUNDARIES.** The real property subject to the levy is all real property within [the incorporated area of the City / DESCRIBE], whose legal description is set out in **Exhibit A**. [Exhibit A: legal description of the boundaries, e.g., the City's boundaries as described in its charter and annexation ordinances, or a metes-and-bounds description. Do not use a map alone.] The {City|County} may exempt or exclude parcels as provided in the assessment ordinance and resolutions adopted later.
 
-SECTION 5. NO OBLIGATION. Adopting this Resolution does not obligate the {City|County} to impose any assessment. The rate, apportionment, and roll will be set only after notice and hearing under Section 197.3632(4), Florida Statutes, and the {City|County}'s assessment ordinance.
+§ **NO OBLIGATION.** Adopting this Resolution does not obligate the {City|County} to impose any assessment. The rate, apportionment, and roll will be set only after notice and hearing under Section 197.3632(4), Florida Statutes, and the {City|County}'s assessment ordinance.
 
-SECTION 6. TRANSMITTAL. By January 10 [or March 10, if the Property Appraiser, Tax Collector and {City|County} have agreed to the March 1 deadline], the [Clerk] shall send a copy of this Resolution by United States mail to the [County] Property Appraiser, the [County] Tax Collector, and the Florida Department of Revenue.
+§ **TRANSMITTAL.** By January 10 [or March 10, if the Property Appraiser, Tax Collector and {City|County} have agreed to the March 1 deadline], the [Clerk] shall send a copy of this Resolution by United States mail to the [County] Property Appraiser, the [County] Tax Collector, and the Florida Department of Revenue.
 
-SECTION 7. AGREEMENT. The [Manager/Administrator] is authorized to negotiate the written agreement with the Property Appraiser and Tax Collector required by Section 197.3632(2), Florida Statutes, for presentation to the [Governing Body].
+§ **AGREEMENT.** The [Manager/Administrator] is authorized to negotiate the written agreement with the Property Appraiser and Tax Collector required by Section 197.3632(2), Florida Statutes, for presentation to the [Governing Body].
 
-SECTION 8. EFFECTIVE DATE. This Resolution takes effect immediately upon adoption.
+§ **EFFECTIVE DATE.** This Resolution takes effect immediately upon adoption.
 
 ADOPTED this [__] day of [MONTH], [YEAR].
 

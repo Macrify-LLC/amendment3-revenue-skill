@@ -1,6 +1,6 @@
 # A. Fee ordinance / resolution
 
-ORDINANCE [or RESOLUTION, if an existing enabling ordinance authorizes fees by resolution] NO. [____]
+# ORDINANCE [or RESOLUTION, if an existing enabling ordinance authorizes fees by resolution] NO. [____]
 
 AN [ORDINANCE/RESOLUTION] OF THE {CITY|COUNTY} OF [NAME], FLORIDA, ESTABLISHING [AMENDING] FEES FOR [RECREATION PROGRAMS AND FACILITIES / LIBRARY SERVICES / FACILITY RENTALS / REGULATORY PROGRAMS — DESCRIBE]; ADOPTING A COST RECOVERY POLICY; PROVIDING FOR ANNUAL ADJUSTMENT; PROVIDING FOR WAIVERS AND ASSISTANCE; AND PROVIDING AN EFFECTIVE DATE.
 
@@ -12,13 +12,13 @@ WHEREAS, the [Governing Body] finds that the fees adopted here are charged in ex
 
 NOW, THEREFORE:
 
-SECTION 1. FINDINGS. [As above, referring to the Study.]
-SECTION 2. COST RECOVERY POLICY. [Tiers, e.g.: Tier 1 community benefit (0-25% recovery); Tier 2 balanced (25-75%); Tier 3 individual benefit (75-100%); Tier 4 premium/specialized (≥100%, within a modest surplus).] Assign each service to a tier.
-SECTION 3. FEE SCHEDULE. [Exhibit A: fee, unit, resident/non-resident rate, tier, current rate, proposed rate, cost per unit from the Study.]
-SECTION 4. ANNUAL ADJUSTMENT. [e.g., CPI adjustment with a cap, by administrative action within the adopted schedule.] [COUNSEL DETERMINATION: delegation limits.]
-SECTION 5. WAIVERS AND ASSISTANCE. [Income-based scholarships, funded by [source].]
-SECTION 6. REVENUE USE. Fee revenue shall be used for [the service / the general operation of the department]. [Regulatory fees: limited to the cost of regulation; building fees, s. 553.80(7).]
-SECTION 7. EFFECTIVE DATE.
+§ **FINDINGS.** [As above, referring to the Study.]
+§ **COST RECOVERY POLICY.** [Tiers, e.g.: Tier 1 community benefit (0-25% recovery); Tier 2 balanced (25-75%); Tier 3 individual benefit (75-100%); Tier 4 premium/specialized (≥100%, within a modest surplus).] Assign each service to a tier.
+§ **FEE SCHEDULE.** [Exhibit A: fee, unit, resident/non-resident rate, tier, current rate, proposed rate, cost per unit from the Study.]
+§ **ANNUAL ADJUSTMENT.** [e.g., CPI adjustment with a cap, by administrative action within the adopted schedule.] [COUNSEL DETERMINATION: delegation limits.]
+§ **WAIVERS AND ASSISTANCE.** [Income-based scholarships, funded by [source].]
+§ **REVENUE USE.** Fee revenue shall be used for [the service / the general operation of the department]. [Regulatory fees: limited to the cost of regulation; building fees, s. 553.80(7).]
+§ **EFFECTIVE DATE.**
 
 [Enactment: s. 166.041 notice, two readings, BIE unless exempt.]
 

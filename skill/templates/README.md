@@ -1,10 +1,17 @@
 # Templates
 
-These are starting drafts, not forms to adopt as-is. Conventions:
-- `[BRACKETS]` = a fact to fill in from a cited source. Never fill one with a guess.
-- `[COUNSEL DETERMINATION: …]` = a legal judgment for the attorney.
-- `{County|City}` = pick the government type. Section references assume a municipality. Swap in s. 125.66 / ch. 125 for a county.
+These are starting drafts, not forms to adopt as-is. Fill in as many blanks as the conversation and public sources allow before handing a draft over (SKILL.md, Phase 5). Conventions:
+- `[BRACKETS]` = a fact still to fill in (highlighted yellow in Word). Fill it from a cited source. Never fill one with a guess.
+- `[[CONFIRM: value]]` = a fact filled in from a source that the user should double-check (green).
+- `[COUNSEL DETERMINATION: …]` = a legal judgment for the attorney (turquoise).
+- `{County|City}` = pick the government type (yellow until resolved). Section references assume a municipality. Swap in s. 125.66 / ch. 125 for a county.
 - Follow the local charter, code, and preferred form (recitals, signature blocks, attestation). These templates use a generic layout.
+
+Markdown syntax for `scripts/make_docx.py`, which builds the Word file with Word's own numbering:
+- `# ORDINANCE NO. [__]`: centered title. `##` / `###`: headings.
+- `§ **HEADING.** Text`: a numbered section (Word numbers it SECTION 1, 2, 3…).
+- `1.` list items after a section become its (a), (b), (c), and indented ones (1), (2), (3). Elsewhere they are 1, 2, 3. Write `1.` for every item; Word does the counting.
+- `-` items are bullets. `>` lines are the shaded plain-language summary. `|` rows are a table. `---` starts a new page (put the drafting notes after it). End a line with two spaces to keep a line break (signature blocks).
 
 Working documents, used throughout:
 - `00-decision-log.md`: every decision the user makes, with reasons. It becomes the public record trail and the start of the legislative findings.
