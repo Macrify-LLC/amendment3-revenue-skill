@@ -5,8 +5,8 @@ An AI skill for Florida counties and cities working out what to do about the 202
 Give it the government's budget and the state tax roll. It will:
 
 1. Measure the property tax revenue the exemption takes away, parcel by parcel.
-2. Map that loss onto the services it pays for.
-3. Find candidates to replace it with special assessments and user fees, with the governing legal tests and authorities, the cost base, apportionment, sample rates, and who pays more and who pays less.
+2. Go through the government's programs with you. Amendment 3 also limits what property tax can be spent on, so for each program that seems to fall outside those uses, you decide whether you agree. If you do, you choose whether to redesign the program, fund it another way, shrink it, or stop it.
+3. Based on those decisions, find candidates to replace the lost money with special assessments and user fees, with the governing legal tests and authorities, the cost base, apportionment, sample rates, and who pays more and who pays less.
 4. Lay out the adoption calendar (the tax-bill deadline for a new assessment comes early: a resolution of intent before January 1, or March 1 by agreement).
 5. Draft the resolutions, ordinances, notices and supporting studies.
 
@@ -26,6 +26,7 @@ skill/
   SKILL.md                      workflow and ground rules
   references/
     amendment3.md               what HJR 1-F actually says
+    program-screen.md           program-by-program uses, priorities and options
     legal-framework.md          fee / assessment / tax tests, verified authorities
     revenue-options.md          catalog of replacement tools
     procedure.md                enactment, uniform method, calendar

@@ -1,6 +1,6 @@
 ---
 name: florida-amendment3-revenue-replacement
-description: Help a Florida county or city respond to the 2026 Amendment 3 homestead exemption (HJR 1-F). Measures the property tax revenue the government loses using its own budget and the state tax roll, identifies non-ad valorem replacement revenue (special assessments, user fees, regulatory fees, cost recovery), builds a revenue plan with a calendar, and drafts the ordinances, resolutions, notices and supporting studies to adopt it. Use when someone asks about Amendment 3, the $250,000 homestead exemption, lost property tax revenue, replacing ad valorem revenue, fire assessments, stormwater/solid waste assessments, user fees, or the uniform method of collection for a Florida local government.
+description: Help a Florida county or city respond to the 2026 Amendment 3 homestead exemption (HJR 1-F), in plain language. Measures the property tax revenue the government loses using its own budget and the state tax roll, walks through its programs to see which may fall outside the new limits on what property tax can pay for (and whether to redesign them, pay for them another way, shrink or stop them), identifies non-ad valorem replacement revenue (special assessments, user fees, regulatory fees, cost recovery), builds a revenue plan with a calendar, and drafts the ordinances, resolutions, notices and supporting studies to adopt it. Use when someone asks about Amendment 3, the $250,000 homestead exemption, lost property tax revenue, replacing ad valorem revenue, fire assessments, stormwater/solid waste assessments, user fees, or the uniform method of collection for a Florida local government.
 ---
 
 # Florida Amendment 3 Revenue Replacement
@@ -15,6 +15,8 @@ You are helping someone (usually a local government attorney, finance director, 
 4. **Respect the calendar.** Collecting a new assessment on the tax bill requires a resolution of intent before January 1, or March 1 if the property appraiser and tax collector agree (s. 197.3632(3)(a)). Check today's date against that deadline at the start and say what is still achievable.
 5. **Drafts are drafts.** Every document you produce is a starting draft for counsel, with bracketed blanks for facts you do not have. Do not fill blanks with plausible-looking guesses.
 6. **Verify the law is current.** The references in this skill were checked on the date shown in each file. Before relying on a statute or case, check that it has not been amended or overruled since then, and tell the user which items you could and could not re-verify.
+7. **Write for a general reader.** Assume the user is not a lawyer, accountant or budget analyst, even if they are, unless they ask for technical detail. Use short sentences and everyday words. Explain a term the first time you use it ("millage" is the property tax rate; "special assessment" is a charge on a property for a service that benefits it). Lead with what it means for residents and the budget, then give the detail. Put citations in parentheses or notes at the end, not in the middle of the explanation. The adopting documents themselves (ordinances, resolutions, notices) must use proper legal form. Give each one a short plain-language summary.
+8. **The user sets priorities.** Which programs matter most, which to redesign, which to cut, and which to fund another way are the user's choices. Lay out options and trade-offs. Don't rank them for the user unless asked.
 
 ## Workflow
 
@@ -38,15 +40,22 @@ Find out:
 4. Split the loss into the part the government itself levies and the part that flows through other levies (county MSTUs, dependent districts, CRA tax increment). The government can only directly replace its own levy.
 5. Report: the loss by year, the loss as a % of the levy and of the general fund, the change in each property class's share, and how many homesteads will pay no non-school tax at all.
 
-### Phase 3: Map the budget
+### Phase 3: Programs and priorities (the program screen)
 
-1. List what the lost revenue currently pays for, using the government's own cut list if it published one.
-2. For each function, note which revenue tools are *candidates* to fund it (see `references/revenue-options.md`), and whether it falls inside the amendment's permitted ad valorem uses (Art. VII, § 9(a)(2) as amended). See `references/amendment3.md` §2 for the open interpretive questions. Present these as questions for counsel, not answers.
-3. Identify services that are already partly fee- or assessment-funded and whose cost recovery could be raised (stormwater, solid waste, building permits, recreation programs).
+Amendment 3 also limits what a county or city may spend its remaining property tax on. This phase goes through the government's programs with the user, using `references/program-screen.md`:
+
+1. Explain the permitted uses in plain words, and ask how broadly the user's attorney reads the last item ("operations … and the expenditures approved by" the governing body). That answer changes how many programs are affected.
+2. Build the program list from the budget (what each program does, what it costs, how much comes from property tax, what fees it already charges). Ask the user to correct it, and ask about **priorities**: which programs residents and the governing body most want to keep.
+3. Sort the programs into *fits*, *unclear*, and *seems outside* the permitted uses, with a one-line reason for each. **Ask the user to confirm or move each "unclear" and "seems outside" program.** Their call is final.
+4. For each program the user agrees is outside, offer the options: **(A)** redesign it so it genuinely fits a permitted use (give concrete, honest ideas); **(B)** pay for it another way (fees, rentals, partners, grants, operators); **(C)** shrink it; **(D)** stop it. Let the user choose.
+5. Also note programs that are already partly paid for by fees or assessments where cost recovery could rise (stormwater, solid waste, permits, recreation).
+6. End with the decision table (program, decision, funding source, amount needed). It drives Phase 4.
 
 ### Phase 4: Build the replacement-revenue plan
 
-1. Go through the candidates in `references/revenue-options.md`. For each one that could apply to this jurisdiction, give:
+Start from the Phase 3 decision table. The money to raise is (a) the cost of programs moving off property tax, plus (b) whatever part of the overall shortfall the user wants to replace rather than cut. Only consider tools that serve those decisions.
+
+1. Go through the candidates in `references/revenue-options.md` that match the Phase 3 decisions. For each one that could apply, give:
    - the legal test and authorities (from `references/legal-framework.md`), with the facts that bear on each element and a `[COUNSEL DETERMINATION]` marker;
    - the cost base it could recover, from the budget, with the parts that cannot be recovered taken out (for example, emergency medical services within a fire budget, per *City of North Lauderdale v. SMM Properties*);
    - an apportionment method and a sample rate, using the roll data (parcel counts, units, building square footage, use codes);
@@ -73,11 +82,19 @@ For a user fee: the fee ordinance or resolution, a cost-of-service study outline
 
 ### Phase 6: Package
 
-Put together a single plan memo: findings, plan table, incidence, timeline, the document list, and a list of every `[COUNSEL DETERMINATION]` and `[BRACKETED]` item still open. Keep it in plain language. Elected officials and residents will read it.
+Put together a single plan memo, written so a resident could follow it:
+1. **The short version** (one paragraph): how much money is lost, what the plan does about it, and what it means for a typical homeowner and a typical business.
+2. What we found (the loss, and which programs the property-tax limit affects).
+3. The decisions made for each program, and why.
+4. The plan: each new fee or assessment, what it pays for, what it costs typical properties, and when it starts.
+5. Who pays more and who pays less.
+6. The calendar.
+7. The documents, and every `[COUNSEL DETERMINATION]` and `[BRACKETED]` item still open.
 
 ## Files
 
 - `references/amendment3.md`: what HJR 1-F actually says, the effective dates, and the interpretive questions.
+- `references/program-screen.md`: the program-by-program conversation about property-tax uses, priorities and options.
 - `references/legal-framework.md`: the tests for fees versus taxes and for special assessments, with verified authorities.
 - `references/revenue-options.md`: the catalog of replacement tools and what each one needs.
 - `references/procedure.md`: adoption and collection procedure, deadlines, and a calendar builder.
