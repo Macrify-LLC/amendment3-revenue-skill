@@ -1,0 +1,5 @@
+_research/
+*.zip
+NAL*.csv
+__pycache__/
+*.json
