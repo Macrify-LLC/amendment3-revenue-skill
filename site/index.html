@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amendment 3 Revenue Skill</title>
+<meta name="description" content="A free AI skill for Florida cities and counties working through the 2026 Amendment 3 homestead exemption: measure the revenue lost, review programs, weigh options like special assessments and user fees, and draft the documents for counsel's review.">
+<meta property="og:title" content="Amendment 3 Revenue Skill">
+<meta property="og:description" content="A free AI skill for Florida cities and counties working through the new homestead exemption.">
+<script>if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Public+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gulf: #0E7C86;
+  --gulf-deep: #0A5960;
+  --citrus: #FF9F1C;
+  --flamingo: #F25F8C;
+  --sky: #FFE9C7;
+  --dusk: #FFC9A0;
+  --ink: #12324A;
+  --ink-soft: #3D5A70;
+  --paper: #FBFDFB;
+  --sand: #F3EFE6;
+  --highway: #0B6B3A;
+  --hl-yellow: #FFF27A;
+  --hl-turq: #8FEDE3;
+  --hl-green: #B9F58A;
+  --display: "Bungee", "Arial Black", Impact, sans-serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --form: ui-monospace, "Courier New", Courier, monospace;
+  --measure: 66ch;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.125rem/1.6 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gulf-deep); text-underline-offset: .18em; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--flamingo); outline-offset: 3px; border-radius: 2px; }
+.wrap { width: min(1200px, 100% - 2.5rem); margin-inline: auto; }
+.prose { max-width: var(--measure); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.skip:focus { left: 1rem; top: 1rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- publisher strip ---------- */
+.strip { background: var(--ink); color: #E6EEF3; font-size: .875rem; }
+.strip .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1.5rem; padding-block: .55rem; }
+.strip a { color: #fff; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sky) 0%, var(--dusk) 78%, #FFB48A 100%);
+  padding-block: clamp(2.5rem, 6vw, 5rem) 0;
+}
+.sun {
+  position: absolute;
+  width: clamp(320px, 52vw, 720px);
+  aspect-ratio: 1;
+  right: -8%;
+  top: 6%;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #FFD23F 0%, var(--citrus) 45%, var(--flamingo) 100%);
+  -webkit-mask: linear-gradient(180deg, #000 0 52%, transparent 52% 56%, #000 56% 64%, transparent 64% 69%, #000 69% 76%, transparent 76% 82%, #000 82% 88%, transparent 88% 95%, #000 95%);
+          mask: linear-gradient(180deg, #000 0 52%, transparent 52% 56%, #000 56% 64%, transparent 64% 69%, #000 69% 76%, transparent 76% 82%, #000 82% 88%, transparent 88% 95%, #000 95%);
+  opacity: .55;
+  pointer-events: none;
+}
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.kicker { margin: 0 0 .75rem; font-weight: 600; color: var(--ink-soft); }
+.postcard {
+  position: relative;
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: min(9.4vw, 9.2rem);
+  line-height: .95;
+  white-space: nowrap;
+  letter-spacing: .01em;
+  isolation: isolate;
+}
+.postcard .line { display: inline-block; position: relative; }
+.postcard .three { margin-left: .28em; }
+.hero-top { position: relative; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.postcard .line::before {
+  /* the extruded block shadow, drawn behind the gradient letters */
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: var(--gulf-deep);
+  text-shadow: 1px 1px 0 var(--gulf-deep), 2px 2px 0 var(--gulf-deep), 3px 3px 0 var(--gulf-deep), 4px 4px 0 var(--gulf-deep),
+               5px 5px 0 var(--gulf-deep), 6px 6px 0 var(--gulf-deep), 7px 7px 0 var(--ink), 8px 8px 0 var(--ink);
+}
+.postcard .ch {
+  display: inline-block;
+  background: linear-gradient(180deg, #FFE45C 0%, #FFB627 32%, var(--citrus) 50%, var(--flamingo) 74%, #C93A86 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+}
+.postcard .three { font-size: 1.25em; }
+.lede { margin: 0; font-size: clamp(1.2rem, 2.1vw, 1.45rem); line-height: 1.45; max-width: 34ch; font-weight: 600; }
+.sub { margin: .9rem 0 0; max-width: 52ch; color: var(--ink-soft); }
+.ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.75rem 0 0; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: .7rem 1.35rem;
+  border-radius: 999px;
+  font: 800 1rem/1.2 var(--body);
+  text-decoration: none;
+  border: 2px solid var(--ink);
+}
+.btn-primary { background: var(--citrus); color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.btn-primary:hover { color: var(--ink); background: #FFB347; }
+.btn-primary:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.btn-ghost { background: rgba(255,255,255,.6); color: var(--ink); }
+.btn-ghost:hover { background: #fff; color: var(--ink); }
+
+/* the illustrative tax bill */
+.bill {
+  position: relative;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 8px 8px 0 rgba(18, 50, 74, .9);
+  font-family: var(--form);
+  font-size: .9rem;
+  line-height: 1.45;
+  transform: rotate(1.2deg);
+}
+.bill-head { padding: .9rem 1.1rem .7rem; border-bottom: 2px dashed var(--ink); }
+.bill-head strong { display: block; font-size: 1rem; letter-spacing: .02em; }
+.bill-head span { color: var(--ink-soft); font-size: .8rem; }
+.years { display: flex; gap: .4rem; padding: .8rem 1.1rem 0; flex-wrap: wrap; }
+.years button {
+  font: 700 .85rem/1 var(--form);
+  padding: .55rem .8rem;
+  min-height: 40px;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.years button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.bill-body { padding: .9rem 1.1rem 1rem; }
+.ex-row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding-bottom: .7rem; border-bottom: 1px solid #C9D5DD; }
+.ex-amt { font-size: 1.35rem; font-weight: 700; color: var(--gulf-deep); white-space: nowrap; }
+.levies { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; gap: .65rem; }
+.levy-top { display: flex; justify-content: space-between; gap: .75rem; }
+.levy-val { white-space: nowrap; }
+.track { height: 12px; background: repeating-linear-gradient(90deg, #EEF3F5 0 6px, #E2EAEE 6px 12px); border: 1px solid var(--ink); border-radius: 2px; margin-top: .25rem; overflow: hidden; }
+.fill { height: 100%; background: var(--gulf); width: var(--w, 100%); transition: width 900ms cubic-bezier(.2,.8,.2,1); }
+.fill.school { background: #7C93A6; }
+.bill-note { margin: .9rem 0 0; font-size: .78rem; color: var(--ink-soft); }
+.options {
+  margin: 1.5rem 0 0;
+  background: var(--hl-yellow);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 1rem 1.1rem;
+  transform: rotate(-1.4deg);
+  box-shadow: 5px 5px 0 rgba(18, 50, 74, .85);
+}
+.options h2 { margin: 0 0 .45rem; font: 800 1rem/1.3 var(--body); }
+.options ul { margin: 0; padding-left: 1.15rem; font-size: .95rem; line-height: 1.5; }
+.options p { margin: .6rem 0 0; font-size: .82rem; line-height: 1.45; }
+.waves { display: block; width: 100%; height: clamp(48px, 7vw, 96px); margin-top: clamp(2.5rem, 5vw, 4rem); }
+
+/* ---------- sections ---------- */
+section { padding-block: clamp(3rem, 7vw, 5.5rem); }
+h2.sec {
+  margin: 0 0 1rem;
+  font: 800 clamp(1.75rem, 3.4vw, 2.5rem)/1.15 var(--body);
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+h3 { font: 800 1.2rem/1.3 var(--body); margin: 0 0 .35rem; }
+.cite { font-size: .85rem; color: var(--ink-soft); }
+.facts { display: grid; gap: 1.6rem; margin-top: 1.8rem; max-width: var(--measure); }
+.facts p { margin: 0; }
+.gulf-band { background: var(--gulf); color: #fff; }
+.gulf-band h2.sec, .gulf-band h3 { color: #fff; }
+.gulf-band a { color: #fff; }
+.gulf-band .cite { color: #CFEFF1; }
+
+/* the route: six mile markers */
+.route { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.2rem 2rem; position: relative; }
+.route li { position: relative; padding-top: 5.4rem; }
+.mm {
+  position: absolute; top: 0; left: 0;
+  width: 3.8rem; height: 4.4rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--highway); color: #fff;
+  border: 3px solid #fff; outline: 2px solid var(--highway);
+  border-radius: 7px;
+  font: 400 1.9rem/1 var(--display);
+}
+.mm small { font: 400 .62rem/1 var(--display); letter-spacing: .08em; margin-bottom: .2rem; }
+.route li::after { /* the road line */
+  content: ""; position: absolute; top: 2.15rem; left: 4.6rem; right: -2rem;
+  border-top: 4px dashed rgba(255,255,255,.55);
+}
+.route li:nth-child(3n)::after, .route li:last-child::after { display: none; }
+.route p { margin: 0; color: #E8F6F7; font-size: 1rem; }
+
+.rules { margin-top: 1.8rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 3rem; max-width: 1000px; }
+.rules p { margin: 0; }
+
+/* placeholders */
+.slot {
+  border: 3px dashed var(--gulf);
+  border-radius: 10px;
+  background: repeating-linear-gradient(135deg, rgba(14,124,134,.06) 0 14px, transparent 14px 28px);
+  padding: 1.4rem 1.5rem;
+}
+.slot-label { font-weight: 800; margin: 0 0 .25rem; }
+.slot p { margin: 0; color: var(--ink-soft); }
+.status { display: inline-block; margin-top: .55rem; font-size: .85rem; font-weight: 700; color: var(--gulf-deep); background: #fff; border: 1px solid var(--gulf); border-radius: 999px; padding: .15rem .65rem; }
+
+.docs { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.5rem 1.25rem; counter-reset: doc; }
+@media (max-width: 900px) { .docs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1rem; } }
+.doc { counter-increment: doc; }
+.sheet {
+  position: relative;
+  aspect-ratio: 8.5 / 11;
+  background: #fff;
+  border: 1.5px solid #B9C7D1;
+  box-shadow: 0 1px 0 #B9C7D1, 4px 5px 0 -1px #fff, 4px 5px 0 0 #B9C7D1;
+  padding: 14% 12%;
+  overflow: hidden;
+}
+.sheet::before { /* the document number, adoption order */
+  content: counter(doc, decimal-leading-zero);
+  position: absolute; top: .55rem; right: .7rem;
+  font: 400 .85rem/1 var(--display); color: var(--gulf);
+}
+.sheet i { display: block; height: 7px; margin-bottom: 9px; background: #DCE4EA; border-radius: 2px; }
+.sheet i.y { background: var(--hl-yellow); }
+.sheet i.t { background: var(--hl-turq); }
+.sheet i.g { background: var(--hl-green); }
+.sheet i.s { width: 55%; }
+.sheet i.m { width: 80%; }
+.doc h3 { margin: .8rem 0 .1rem; font-size: 1rem; }
+.doc p { margin: 0; font-size: .9rem; color: var(--ink-soft); }
+.key { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin: 1.4rem 0 0; padding: 0; list-style: none; font-size: .95rem; }
+.key mark { padding: .05rem .4rem; color: var(--ink); border-radius: 2px; }
+
+.get { background: var(--sand); }
+.get-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; margin-top: 1.8rem; }
+.get-actions { display: grid; gap: 1rem; }
+.unavailable { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.btn-off { background: #fff; color: var(--ink-soft); border-style: dashed; border-color: var(--ink-soft); cursor: default; }
+.needs { margin: 0; padding-left: 1.2rem; }
+.needs li + li { margin-top: .6rem; }
+.caution { margin-top: 1.5rem; border-left: 6px solid var(--citrus); background: #fff; padding: 1rem 1.2rem; }
+.caution p { margin: 0; }
+
+footer { background: var(--ink); color: #D6E2EA; padding-block: 2.5rem; font-size: .95rem; }
+footer p { margin: 0 0 .6rem; max-width: var(--measure); }
+footer a { color: #fff; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .postcard { font-size: 12.4vw; }
+  .postcard .line { display: block; }
+  .postcard .three { margin-left: 0; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .bill { transform: none; max-width: 520px; }
+  .options { transform: none; max-width: 520px; }
+  .route { grid-template-columns: 1fr; gap: 1.6rem; }
+  .route li { padding: 0 0 0 5rem; min-height: 4.6rem; }
+  .route li::after { top: 4.6rem; left: 1.65rem; right: auto; bottom: -1.6rem; border-top: 0; border-left: 4px dashed rgba(255,255,255,.55); }
+  .route li:nth-child(3n)::after { display: block; }
+  .route li:last-child::after { display: none; }
+  .rules, .get-grid { grid-template-columns: 1fr; }
+  .sun { opacity: .35; right: -30%; top: 2%; }
+}
+@media (max-width: 420px) {
+  .postcard .ch { -webkit-text-stroke-width: 1.5px; }
+  .postcard .line::before { text-shadow: 1px 1px 0 var(--gulf-deep), 2px 2px 0 var(--gulf-deep), 3px 3px 0 var(--gulf-deep), 4px 4px 0 var(--ink); }
+}
+
+/* ---------- the one load sequence ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js .postcard .ch { animation: drop 620ms cubic-bezier(.2,1.4,.4,1) both; animation-delay: calc(var(--i) * 45ms); }
+  .js .postcard .line::before { animation: fade 400ms ease-out both; animation-delay: 500ms; }
+  .js .options.pending { opacity: 0; transform: translateY(14px) rotate(-1.4deg); }
+  .js .options { transition: opacity 500ms ease-out, transform 500ms cubic-bezier(.2,.9,.3,1.2); }
+  @keyframes drop { from { transform: translateY(-0.9em) rotate(-8deg); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fill { transition: none; }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .js .options.pending { transform: translateY(14px); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="strip">
+  <div class="wrap">
+    <span>A free, independent tool published by <a href="https://macrify.me">Macrify LLC</a>. Not legal advice.</span>
+    <span>Updated November 4, 2026</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap hero-top">
+      <p class="kicker">Approved by Florida voters, November 3, 2026</p>
+    <h1 class="postcard" aria-label="Amendment 3">
+      <span class="line" data-text="AMENDMENT" aria-hidden="true"><span class="ch" style="--i:0">A</span><span class="ch" style="--i:1">M</span><span class="ch" style="--i:2">E</span><span class="ch" style="--i:3">N</span><span class="ch" style="--i:4">D</span><span class="ch" style="--i:5">M</span><span class="ch" style="--i:6">E</span><span class="ch" style="--i:7">N</span><span class="ch" style="--i:8">T</span></span>
+      <span class="line three" data-text="3" aria-hidden="true"><span class="ch" style="--i:10">3</span></span>
+    </h1>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="lede">The new homestead exemption, and a way for your city or county to work through it.</p>
+      <p class="sub">A free AI skill for Florida local governments. Give it your adopted budget and the state tax roll. It measures the revenue you stand to lose, goes through your programs with you, lays out options to evaluate, from trimming or redesigning programs to special assessments and user fees, and drafts the documents for your attorney to review.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#get">Get the skill</a>
+        <a class="btn btn-ghost" href="#largo">See the Largo example</a>
+      </div>
+    </div>
+
+    <div>
+      <figure class="bill" aria-labelledby="bill-title" style="margin:0">
+        <div class="bill-head">
+          <strong id="bill-title">Illustrative diagram: one homestead's property tax</strong>
+          <span>Example home: homestead assessed at $250,000. Not a real tax bill.</span>
+        </div>
+        <div class="years" role="group" aria-label="Choose a tax year">
+          <button type="button" data-year="2026" aria-pressed="false">2026</button>
+          <button type="button" data-year="2027" aria-pressed="false">2027</button>
+          <button type="button" data-year="2028" aria-pressed="true">2028</button>
+        </div>
+        <div class="bill-body" aria-live="polite">
+          <div class="ex-row">
+            <span>Non-school homestead exemption</span>
+            <span class="ex-amt" id="ex-amt">up to $250,000</span>
+          </div>
+          <ul class="levies">
+            <li>
+              <div class="levy-top"><span>School district</span><span class="levy-val" id="v-school">$225,000 taxable</span></div>
+              <div class="track" aria-hidden="true"><div class="fill school" id="f-school" style="--w:90%"></div></div>
+            </li>
+            <li>
+              <div class="levy-top"><span>County</span><span class="levy-val" id="v-county">$0 taxable</span></div>
+              <div class="track" aria-hidden="true"><div class="fill" id="f-county" style="--w:0%"></div></div>
+            </li>
+            <li>
+              <div class="levy-top"><span>City</span><span class="levy-val" id="v-city">$0 taxable</span></div>
+              <div class="track" aria-hidden="true"><div class="fill" id="f-city" style="--w:0%"></div></div>
+            </li>
+          </ul>
+          <p class="bill-note">Bars show the value each government can tax, not dollars owed. The school exemption stays at $25,000. 2026 uses the current maximum non-school exemption of $51,411. Source: <a href="https://www.flsenate.gov/Session/Bill/2026F/1F/BillText/er/PDF">HJR 1-F, Art. VII, § 6(a)</a>.</p>
+        </div>
+      </figure>
+
+      <aside class="options" id="options" aria-labelledby="options-title">
+        <h2 id="options-title">Options a city or county could consider</h2>
+        <ul>
+          <li>Redesign, trim or stop programs</li>
+          <li>Special assessments, such as fire, stormwater or solid waste</li>
+          <li>User fees for services people choose to use</li>
+          <li>Other revenue, or living with less</li>
+        </ul>
+        <p>Assessments and fees aren't covered by the homestead exemption. None of them happens automatically: each needs a study, public hearings, and review by the government's attorney.</p>
+      </aside>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 55 C 160 20, 320 20, 480 52 S 800 88, 960 52 S 1280 18, 1440 50 V100 H0Z" fill="#7FD6D9"/>
+    <path d="M0 72 C 200 45, 380 50, 560 74 S 900 98, 1100 70 S 1340 52, 1440 66 V100 H0Z" fill="#0E7C86"/>
+  </svg>
+</header>
+
+<main id="main">
+
+  <section class="gulf-band" aria-labelledby="changed" style="padding-top:clamp(1rem,3vw,2rem)">
+    <div class="wrap">
+      <h2 class="sec" id="changed">What changed</h2>
+      <div class="facts">
+        <div>
+          <h3>Most homesteads owe far less city and county tax</h3>
+          <p>The homestead exemption from non-school property taxes rises to $150,000 of assessed value in 2027 and $250,000 in 2028, then grows with inflation from 2029. A homestead assessed at $250,000 or less will owe no city or county property tax in 2028. School taxes are not affected.</p>
+          <p class="cite">Art. VII, § 6(a), as amended by HJR 1-F. People who move to Florida after 2026 get a $50,000 exemption for their first five years. For businesses, rentals and other non-homestead property, the yearly cap on increases in assessed value for non-school taxes drops from 10% to 5% (Art. VII, § 4).</p>
+        </div>
+        <div>
+          <h3>Property tax may only pay for certain things</h3>
+          <p>The amendment lists what remaining property tax revenue can be used for. One item is broad, so how much this limits a given program is a question for the government's attorney.</p>
+          <p class="cite">Art. VII, § 9(a)(2), as amended.</p>
+        </div>
+        <div>
+          <h3>Assessments and fees work differently</h3>
+          <p>The exemption doesn't reach "assessments for special benefits," and user fees aren't taxes. So a government can ask property owners or users to pay for specific services instead, if each charge meets Florida's legal tests. That moves some of the cost back onto homesteads, and the skill shows who pays more and who pays less.</p>
+          <p class="cite">Art. VII, § 6(a); <a href="https://www.flsenate.gov/Session/Bill/2026F/1F/BillText/er/PDF">read the enrolled text</a>.</p>
+        </div>
+      </div>
+
+      <h2 class="sec" style="margin-top:clamp(3rem,6vw,4.5rem)">How the skill works</h2>
+      <p class="prose" style="margin:0;color:#E8F6F7">It's a long conversation, because these are big decisions. At the end of each stage it writes a short note on what was found and decided, so anyone can pick up where you left off.</p>
+      <ol class="route">
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>1</span><h3>Start</h3><p>Who you are, which government, what documents you have, and the deadlines that still work this year.</p></li>
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>2</span><h3>Measure the loss</h3><p>Reads your budget and the state tax roll, parcel by parcel, and checks the result against your own estimate.</p></li>
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>3</span><h3>Go through your programs</h3><p>Flags programs that may fall outside the new property-tax uses. You decide: keep, redesign, fund another way, shrink or stop.</p></li>
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>4</span><h3>Compare packages</h3><p>Two or three combinations of choices and charges, with what typical homes and businesses would pay under each.</p></li>
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>5</span><h3>Draft the documents</h3><p>Resolutions, ordinances, notices and studies as Word files, with as many blanks filled in as the record allows.</p></li>
+        <li><span class="mm" aria-hidden="true"><small>MILE</small>6</span><h3>Write the plan</h3><p>A plain-language memo of the choices, the trade-offs, the calendar and every open question.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="calls">
+    <div class="wrap">
+      <h2 class="sec" id="calls">You make the calls</h2>
+      <p class="prose" style="margin:0">The skill supplies ideas, numbers and drafts. The judgment stays with the people accountable for it.</p>
+      <div class="rules">
+        <div><h3>Legality is your attorney's call</h3><p>It lays out the legal tests and the record for each charge, and marks every legal question for counsel. It never says a charge is valid.</p></div>
+        <div><h3>Priorities are yours</h3><p>It won't rank programs or pick a package unless you ask, and then it says what the other choices give up.</p></div>
+        <div><h3>Every number has a source</h3><p>Each figure cites the budget page, tax roll field or document it came from. Anything it can't find goes on a list of questions for staff.</p></div>
+        <div><h3>Every decision is written down</h3><p>A decision log records what you chose, what else was on the table, and why, in your words.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="largo" aria-labelledby="largo-title" style="background:#fff;border-top:1px solid #E1E8EC;border-bottom:1px solid #E1E8EC">
+    <div class="wrap">
+      <h2 class="sec" id="largo-title">The Largo example</h2>
+      <div class="prose">
+        <p style="margin-top:0">To show the skill at work, we ran it on the City of Largo, using public records. Largo's staff projected about $15.7 million a year in lost recurring revenue once the exemption is fully in place, about $10.2 million of it from levies the city sets. The rest comes from county-run services. Their alternative budget closed the gap with cuts alone.</p>
+        <p class="cite">Source: City of Largo, Review of the City Manager's Alternative Budget, City Commission meeting, October 6, 2026.</p>
+        <p><strong>This is an independent demonstration.</strong> It was not commissioned, reviewed or endorsed by the City of Largo, and nothing in it is advice to the city.</p>
+      </div>
+      <!-- PLACEHOLDER: Largo session. Replace this slot with the recorded video embed and/or a link to the exported chat log. -->
+      <div class="slot" data-slot="largo-session" style="margin-top:1.6rem">
+        <p class="slot-label">The full conversation</p>
+        <p>The recorded session and the complete chat log will be posted here.</p>
+        <span class="status">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="documents" aria-labelledby="docs-title">
+    <div class="wrap">
+      <h2 class="sec" id="docs-title">The documents it drafted</h2>
+      <p class="prose" style="margin:0">Starting drafts for counsel's review, in the order they would be adopted. Every open item is highlighted in Word, so nothing gets adopted with a blank in it.</p>
+      <ul class="key" aria-label="Highlight key">
+        <li><mark style="background:var(--hl-yellow)">Yellow</mark> a fact still to fill in</li>
+        <li><mark style="background:var(--hl-turq)">Turquoise</mark> a legal judgment for counsel</li>
+        <li><mark style="background:var(--hl-green)">Green</mark> filled in from a source, to confirm</li>
+      </ul>
+      <!-- PLACEHOLDER: example documents. For each tile, wrap the sheet + title in <a href="docs/NN Name.docx"> and change the status text to "Download (.docx)". -->
+      <ol class="docs" data-slot="example-docs">
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="y s"></i><i></i><i class="m"></i><i class="t"></i><i class="s"></i></div><h3>Resolution of intent</h3><p>Uniform method of collection</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i></i><i class="g m"></i><i></i><i class="s"></i></div><h3>Published notice</h3><p>Four weeks before the hearing</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="t"></i><i class="m"></i><i class="y s"></i><i></i><i class="m"></i><i class="s"></i></div><h3>Assessment ordinance</h3><p>The framework for the charge</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i></i><i class="y m"></i><i></i><i class="s"></i></div><h3>Methodology report</h3><p>Special benefit and fair apportionment</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i class="g"></i><i></i><i class="y s"></i><i class="m"></i><i class="t s"></i></div><h3>Initial assessment resolution</h3><p>Rates, roll and hearing date</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i></i><i class="y m"></i><i></i><i class="m"></i></div><h3>Hearing notices</h3><p>Mailed and published</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="t m"></i><i class="s"></i><i></i><i class="y s"></i></div><h3>Final assessment resolution</h3><p>Adopts the roll</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="y"></i><i></i><i class="s"></i></div><h3>Business impact estimate</h3><p>Posted before the ordinance vote</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="s"></i><i class="m"></i><i></i><i class="s"></i></div><h3>Agenda memo and public FAQ</h3><p>In plain words</p><span class="status">Example coming soon</span></li>
+        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="g s"></i><i></i><i class="m"></i></div><h3>The plan memo</h3><p>Choices, trade-offs and calendar</p><span class="status">Example coming soon</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="get" class="get" aria-labelledby="get-title">
+    <div class="wrap">
+      <h2 class="sec" id="get-title">Get the skill</h2>
+      <p class="prose" style="margin:0">Free and open source under the MIT license. It's a folder of instructions, legal references, document templates and small Python scripts that an AI assistant follows.</p>
+      <div class="get-grid">
+        <div class="get-actions">
+          <!-- PLACEHOLDER: repo download. When live, replace each <span class="btn btn-off"> with an <a class="btn btn-primary" href="..."> and delete the "Link coming at launch" note. -->
+          <div class="unavailable" data-slot="repo-download">
+            <span class="btn btn-off">Download the skill (.zip)</span>
+            <span class="btn btn-off">View the source on GitHub</span>
+          </div>
+          <p class="cite" style="margin:0">Link coming at launch.</p>
+          <div class="caution">
+            <p><strong>Before you start:</strong> in Florida, a chat about government business is likely a public record. Keep it, and leave out anything confidential or privileged. Board members shouldn't share or discuss the chat with each other outside a noticed meeting.</p>
+          </div>
+        </div>
+        <div>
+          <h3>What you need</h3>
+          <ul class="needs">
+            <li><strong>An AI assistant that can use the files and run Python.</strong> The skill was built and tested in Claude, where you add the folder as a skill. Other assistants that accept uploaded files and can run code should be able to follow it. The skill is free, but your assistant may need a paid plan.</li>
+            <li><strong>Your adopted budget,</strong> and any staff estimate of the Amendment 3 impact.</li>
+            <li><strong>The state tax roll file for your county</strong> from the <a href="https://floridarevenue.com/property/dataportal/">Florida Department of Revenue's data portal</a>. It's large, so the skill can cut it down to just your parcels.</li>
+            <li><strong>Time.</strong> Plan on a long conversation, over more than one sitting.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>This is not legal advice. The skill and its drafts are starting points. A Florida-licensed attorney must review every legal question and every document before anything is adopted. The legal references were checked on the dates shown in each file, and the law may change.</p>
+    <p>Published by <a href="https://macrify.me">Macrify LLC</a>. Not affiliated with any Florida government.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Taxable value of an example homestead assessed at $250,000, by year (HJR 1-F).
+  var STATES = {
+    "2026": { ex: "up to $51,411", school: 225000, nonschool: 198589 },
+    "2027": { ex: "up to $150,000", school: 225000, nonschool: 100000 },
+    "2028": { ex: "up to $250,000", school: 225000, nonschool: 0 }
+  };
+  var BASE = 250000;
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return "$" + n.toLocaleString("en-US") + " taxable"; };
+  var buttons = document.querySelectorAll(".years button");
+
+  function show(year) {
+    var s = STATES[year];
+    $("ex-amt").textContent = s.ex;
+    $("v-school").textContent = money(s.school);
+    $("v-county").textContent = money(s.nonschool);
+    $("v-city").textContent = money(s.nonschool);
+    $("f-school").style.setProperty("--w", (s.school / BASE * 100) + "%");
+    $("f-county").style.setProperty("--w", (s.nonschool / BASE * 100) + "%");
+    $("f-city").style.setProperty("--w", (s.nonschool / BASE * 100) + "%");
+    buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.year === year)); });
+  }
+  buttons.forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.year); }); });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) return; // the HTML already shows the final (2028) state
+
+  // One load sequence: letters drop in, the years step 2026 -> 2028, then the options note lands.
+  var options = $("options");
+  options.classList.add("pending");
+  var live = document.querySelector(".bill-body");
+  live.setAttribute("aria-live", "off"); // don't narrate the intro animation
+  show("2026");
+  setTimeout(function () { show("2027"); }, 1500);
+  setTimeout(function () { show("2028"); }, 2700);
+  setTimeout(function () {
+    options.classList.remove("pending");
+    live.setAttribute("aria-live", "polite");
+  }, 3600);
+})();
+</script>
+</body>
+</html>
