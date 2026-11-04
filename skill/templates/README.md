@@ -6,6 +6,13 @@ These are starting drafts, not forms to adopt as-is. Conventions:
 - `{County|City}` = pick the government type. Section references assume a municipality. Swap in s. 125.66 / ch. 125 for a county.
 - Follow the local charter, code, and preferred form (recitals, signature blocks, attestation). These templates use a generic layout.
 
+Working documents, used throughout:
+- `00-decision-log.md`: every decision the user makes, with reasons. It becomes the public record trail and the start of the legislative findings.
+- `11-staff-data-requests.md`: numbers that aren't published, as requests to the right department.
+- `12-letter-to-county-and-interlocal-terms.md`: when part of the loss sits in another government's levy.
+
+Adopting documents:
+
 | Document | Fire / solid waste / stormwater assessment on the tax bill | Capital improvement (ch. 170) | User fee | Regulatory fee |
 |---|---|---|---|---|
 | `01-resolution-of-intent.md` (s. 197.3632(3)(a)) | ✔ | ✔ if collected on the tax bill | | |

@@ -207,6 +207,23 @@ def list_tax_auth(args: argparse.Namespace) -> None:
           "table; a mailing city (PHY_CITY) is NOT the same as the city limits.")
 
 
+def extract(args: argparse.Namespace) -> None:
+    tax_auth = {c.strip().upper() for c in (args.tax_auth or [])}
+    if not tax_auth:
+        sys.exit("--extract needs --tax-auth to choose the parcels")
+    n = 0
+    with open(args.nal, newline="", encoding="latin-1") as f, \
+         open(args.extract, "w", newline="", encoding="latin-1") as out:
+        reader = csv.DictReader(f)
+        writer = csv.DictWriter(out, fieldnames=reader.fieldnames)
+        writer.writeheader()
+        for row in reader:
+            if row.get("TAX_AUTH_CD", "").strip().upper() in tax_auth:
+                writer.writerow(row)
+                n += 1
+    print(f"Wrote {n:,} parcels to {args.extract}")
+
+
 def print_report(r: dict) -> None:
     print(f"\n{r['jurisdiction']}  ({r['levy']} levy, {r['millage']} mills, collection rate {r['collection_rate']})")
     print(f"Parcels: {r['parcels']:,}   Homestead parcels: {r['homestead_parcels']:,}")
@@ -218,6 +235,10 @@ def print_report(r: dict) -> None:
         print(f"    Revenue lost:           ${s['revenue_lost_at_current_millage']:,} per year")
         print(f"    Homesteads paying $0:   {s['homesteads_fully_exempt']:,}")
         print(f"    Millage to hold levy:   {s['millage_needed_to_hold_levy_flat']}")
+        m = s["millage_needed_to_hold_levy_flat"]
+        if m and m > 10:
+            print("    NOTE: above the 10-mill constitutional cap for county or municipal purposes "
+                  "(Art. VII, s. 9(b)); raising the tax rate cannot replace this loss on its own.")
     print("\n  Taxable value by property class (now -> 2028):")
     for grp, c in r["by_class"].items():
         print(f"    {grp:<26}{c['parcels']:>8,} parcels  ${c['taxable_now']:>16,} -> ${c['taxable_2028 ($250,000)']:>16,}")
@@ -238,12 +259,17 @@ def main() -> None:
                    help="Exemption for 2028 (default 250000). Indexed for inflation from 2029.")
     p.add_argument("--name", help="Label for the report")
     p.add_argument("--json", help="Also write the full result to this JSON path")
+    p.add_argument("--extract", help="Write only the selected parcels (all columns) to this CSV and exit. "
+                                     "Use to make a small file you can upload to a chat.")
     p.add_argument("--list-tax-auth", action="store_true", help="List TAX_AUTH_CD codes and exit")
     p.add_argument("--city", help="With --list-tax-auth: filter by physical-address city")
     args = p.parse_args()
 
     if args.list_tax_auth:
         list_tax_auth(args)
+        return
+    if args.extract:
+        extract(args)
         return
     if args.millage is None:
         p.error("--millage is required (the jurisdiction's adopted operating millage)")

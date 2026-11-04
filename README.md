@@ -6,7 +6,7 @@ Give it the government's budget and the state tax roll. It will:
 
 1. Measure the property tax revenue the exemption takes away, parcel by parcel.
 2. Go through the government's programs with you. Amendment 3 also limits what property tax can be spent on, so for each program that seems to fall outside those uses, you decide whether you agree. If you do, you choose whether to redesign the program, fund it another way, shrink it, or stop it.
-3. Based on those decisions, find candidates to replace the lost money with special assessments and user fees, with the governing legal tests and authorities, the cost base, apportionment, sample rates, and who pays more and who pays less.
+3. Based on those decisions, put together two or three packages to compare, showing what each keeps or cuts and what typical homes and businesses would pay. It also finds candidates to replace the lost money with special assessments and user fees, with the governing legal tests and authorities, the cost base, apportionment, sample rates, and who pays more and who pays less.
 4. Lay out the adoption calendar (the tax-bill deadline for a new assessment comes early: a resolution of intent before January 1, or March 1 by agreement).
 5. Draft the resolutions, ordinances, notices and supporting studies.
 
@@ -30,10 +30,13 @@ skill/
     legal-framework.md          fee / assessment / tax tests, verified authorities
     revenue-options.md          catalog of replacement tools
     procedure.md                enactment, uniform method, calendar
+    counties.md                 what is different for counties
     data-sources.md             where to get the data
     nal-fields.md               tax roll fields used
   scripts/exemption_impact.py   parcel-level exemption impact calculator
-  templates/                    starting drafts of the adopting documents
+  scripts/incidence.py          revenue and who pays more / less for a package
+  templates/                    decision log, staff data requests, county letter,
+                                and starting drafts of the adopting documents
 ```
 
 ## Caveats
