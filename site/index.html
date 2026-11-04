@@ -235,13 +235,13 @@ h3 { font: 800 1.2rem/1.3 var(--body); margin: 0 0 .35rem; }
 .slot p { margin: 0; color: var(--ink-soft); }
 .status { display: inline-block; margin-top: .55rem; font-size: .85rem; font-weight: 700; color: var(--gulf-deep); background: #fff; border: 1px solid var(--gulf); border-radius: 999px; padding: .15rem .65rem; }
 
-.docs { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.5rem 1.25rem; counter-reset: doc; }
-@media (max-width: 900px) { .docs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.docs { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.75rem 1.5rem; counter-reset: doc; }
+@media (max-width: 900px) { .docs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem 1rem; } }
 .doc { counter-increment: doc; }
 .sheet {
   position: relative;
-  aspect-ratio: 8.5 / 11;
+  aspect-ratio: 8.5 / 9;
   background: #fff;
   border: 1.5px solid #B9C7D1;
   box-shadow: 0 1px 0 #B9C7D1, 4px 5px 0 -1px #fff, 4px 5px 0 0 #B9C7D1;
@@ -249,7 +249,7 @@ h3 { font: 800 1.2rem/1.3 var(--body); margin: 0 0 .35rem; }
   overflow: hidden;
 }
 .sheet::before { /* the document number, adoption order */
-  content: counter(doc, decimal-leading-zero);
+  content: attr(data-n);
   position: absolute; top: .55rem; right: .7rem;
   font: 400 .85rem/1 var(--display); color: var(--gulf);
 }
@@ -277,6 +277,39 @@ h3 { font: 800 1.2rem/1.3 var(--body); margin: 0 0 .35rem; }
 footer { background: var(--ink); color: #D6E2EA; padding-block: 2.5rem; font-size: .95rem; }
 footer p { margin: 0 0 .6rem; max-width: var(--measure); }
 footer a { color: #fff; }
+
+
+/* ---------- Largo chat ---------- */
+.largo { background: linear-gradient(180deg, #fff 0%, #F2FAFA 100%); border-top: 1px solid #E1E8EC; border-bottom: 1px solid #E1E8EC; }
+.chat { margin-top: 2rem; max-width: 900px; border: 2px solid var(--ink); border-radius: 18px; background: #fff; box-shadow: 10px 10px 0 var(--gulf); overflow: hidden; }
+.chat-bar { display: flex; align-items: center; gap: .45rem; padding: .7rem 1rem; background: var(--ink); color: #fff; font-size: .9rem; }
+.chat-bar span { width: 12px; height: 12px; border-radius: 50%; background: var(--flamingo); }
+.chat-bar span:nth-child(2) { background: var(--citrus); }
+.chat-bar span:nth-child(3) { background: #7FD6D9; }
+.chat-bar b { margin-left: .5rem; font-weight: 700; }
+.chat-log { list-style: none; margin: 0; padding: clamp(1rem, 3vw, 1.75rem); display: grid; gap: 1rem; }
+.c-msg { position: relative; border-radius: 16px; padding: .9rem 1.1rem; font-size: 1rem; line-height: 1.55; }
+.c-msg p { margin: 0 0 .55rem; }
+.c-msg p:last-of-type { margin-bottom: 0; }
+.c-user { justify-self: end; max-width: min(560px, 92%); background: #FFF3D6; border: 2px solid #F5C266; border-bottom-right-radius: 4px; }
+.c-ai { justify-self: start; max-width: min(720px, 96%); background: #fff; border: 2px solid var(--gulf); border-bottom-left-radius: 4px; }
+.c-t { display: block; font-size: .78rem; font-weight: 700; color: var(--ink-soft); margin-bottom: .3rem; }
+.c-steps { justify-self: center; width: min(620px, 100%); border: 1.5px dashed var(--gulf); border-radius: 12px; padding: .6rem 1rem; background: rgba(14,124,134,.06); font-size: .92rem; }
+.c-steps ul { margin: 0; padding-left: 1.1rem; color: var(--gulf-deep); }
+.c-why { margin-top: .8rem; padding: .6rem .8rem; background: var(--hl-yellow); border-radius: 6px; font-size: .9rem; font-weight: 600; transform: rotate(-.6deg); }
+.largo-after { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin-top: 2rem; }
+.largo-after .cite { margin: 0; }
+.fine-print { margin-top: 1.5rem; font-size: .95rem; color: var(--ink-soft); }
+.doc a { display: block; color: inherit; text-decoration: none; border-radius: 4px; }
+.doc a:hover .sheet, .doc a:focus-visible .sheet { transform: translateY(-4px) rotate(-1deg); box-shadow: 0 1px 0 #B9C7D1, 6px 8px 0 0 var(--gulf); }
+.doc a:hover h3 { text-decoration: underline; }
+.sheet { transition: transform 180ms ease-out, box-shadow 180ms ease-out; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .chat.armed .chat-log > li { opacity: 0; transform: translateY(10px); }
+  .js .chat .chat-log > li { transition: opacity 420ms ease-out, transform 420ms cubic-bezier(.2,.9,.3,1.1); }
+  .js .chat.armed .chat-log > li.shown { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet { transition: none; } }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
@@ -342,7 +375,7 @@ footer a { color: #fff; }
       <p class="sub">A free AI skill for Florida local governments. Give it your adopted budget and the state tax roll. It measures the revenue you stand to lose, goes through your programs with you, lays out options to evaluate, from trimming or redesigning programs to special assessments and user fees, and drafts the documents for your attorney to review.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="#get">Get the skill</a>
-        <a class="btn btn-ghost" href="#largo">See the Largo example</a>
+        <a class="btn btn-ghost" href="#largo">See how it was done</a>
       </div>
     </div>
 
@@ -447,19 +480,44 @@ footer a { color: #fff; }
     </div>
   </section>
 
-  <section id="largo" aria-labelledby="largo-title" style="background:#fff;border-top:1px solid #E1E8EC;border-bottom:1px solid #E1E8EC">
+  <section id="largo" aria-labelledby="largo-title" class="largo">
     <div class="wrap">
-      <h2 class="sec" id="largo-title">The Largo example</h2>
+      <h2 class="sec" id="largo-title">See how it was done: the Largo example</h2>
       <div class="prose">
-        <p style="margin-top:0">To show the skill at work, we ran it on the City of Largo, using public records. Largo's staff projected about $15.7 million a year in lost recurring revenue once the exemption is fully in place, about $10.2 million of it from levies the city sets. The rest comes from county-run services. Their alternative budget closed the gap with cuts alone.</p>
-        <p class="cite">Source: City of Largo, Review of the City Manager's Alternative Budget, City Commission meeting, October 6, 2026.</p>
-        <p><strong>This is an independent demonstration.</strong> It was not commissioned, reviewed or endorsed by the City of Largo, and nothing in it is advice to the city.</p>
+        <p style="margin-top:0">We ran the skill on the City of Largo, using only public records. In <strong>18 minutes</strong> it went from one question to a full set of 16 draft documents. Here's how the conversation went, shortened. The yellow notes show what the skill was doing at each point.</p>
       </div>
-      <!-- PLACEHOLDER: Largo session. Replace this slot with the recorded video embed and/or a link to the exported chat log. -->
-      <div class="slot" data-slot="largo-session" style="margin-top:1.6rem">
-        <p class="slot-label">The full conversation</p>
-        <p>The recorded session and the complete chat log will be posted here.</p>
-        <span class="status">Coming soon</span>
+
+      <div class="chat" id="chat">
+        <div class="chat-bar" aria-hidden="true"><span></span><span></span><span></span><b>Claude, with the Amendment 3 skill</b></div>
+        <ol class="chat-log">
+          <li class="c-msg c-user"><span class="c-t">0 min</span><p>Estimate how much property tax revenue my city will lose from Amendment 3 and help me come up with a way to save as many programs as possible.</p></li>
+          <li class="c-steps"><span class="c-t">0 to 4 min</span><ul><li>Opened the state tax roll for Pinellas County</li><li>Searched Largo's budget and news coverage</li><li>Ran the exemption calculator on Largo's 29,816 parcels</li><li>Started a decision log</li></ul></li>
+          <li class="c-msg c-ai"><span class="c-t">4 min</span>
+            <p>I assumed you mean the City of Largo, since that's your folder's name, and the city's own parcels in your tax roll file confirm it. Largo expects to lose about <strong>$15.7 million a year</strong> once Amendment 3 is fully in effect.</p>
+            <p><strong>One note before anything else.</strong> In Florida, a chat like this about city business is probably a public record. Keep it, and don't put confidential legal strategy in it. &hellip;</p>
+            <p>I also rebuilt the city's part myself from the 2026 state tax roll &hellip; About <strong>12,100 of 15,800 homesteads (77%) would pay no city property tax at all.</strong></p>
+            <p>&hellip; To go further, I need from you: your role &hellip; how broadly your attorney reads the amendment &hellip; which programs matter most.</p>
+            <aside class="c-why">The skill at work: it checks its numbers against the city's own estimate, starts with the public-records warning, and asks before deciding anything.</aside>
+          </li>
+          <li class="c-msg c-user"><span class="c-t">9 min</span><p>I am an interested citizen, not with the City. I'm just trying to help. I think the Attorney wants to avoid as much legal risk as possible, so tell me which programs are most at risk. I care most about the performing arts center. I'm going to ask you to draft everything.</p></li>
+          <li class="c-steps"><span class="c-t">9 to 18 min</span><ul><li>Read Largo's budget documents and fire rescue annual report</li><li>Checked state law on tourist development tax for auditoriums</li><li>Ran the who-pays calculator for three packages</li><li>Wrote 16 drafts and built the Word files</li><li>Looked at a rendered page to check its work</li></ul></li>
+          <li class="c-msg c-ai"><span class="c-t">18 min</span>
+            <p>The full draft set is done &hellip; 16 Word files, starting with a plain-language plan memo.</p>
+            <p>Police and fire together (about $70M) already cost more than all of Largo's property tax (about $44M). So every property tax dollar can go to police and fire. The Center, parks, recreation and the library can then be paid for entirely with the City's other money &hellip;</p>
+            <p>&hellip; Do you want to move any program in the risk table, and which package would you lean toward as a resident?</p>
+            <aside class="c-why">The skill at work: it sorted programs by legal risk, built three packages instead of one answer, marked every legal call for the City Attorney, and handed the choice back.</aside>
+          </li>
+          <li class="c-msg c-user"><span class="c-t">Later</span><p>Is it possible to create a special assessment for road maintenance?</p></li>
+          <li class="c-msg c-ai"><span class="c-t">Later</span><p>Yes, but only in a narrow form. It would also do much less for Largo than a fire assessment. &hellip;</p></li>
+        </ol>
+      </div>
+
+      <div class="largo-after">
+        <a class="btn btn-primary" href="largo/session.html">Read the full transcript</a>
+        <p class="cite">Every message word for word, with each search, page and calculation listed.</p>
+      </div>
+      <div class="prose fine-print">
+        <p><strong>This is an independent demonstration.</strong> The person using the skill played an interested citizen. It was not commissioned, reviewed or endorsed by the City of Largo, and nothing in it is advice to the city. Largo's own estimate of the loss is from the city's published materials, including its Review of the City Manager's Alternative Budget (City Commission, October 6, 2026).</p>
       </div>
     </div>
   </section>
@@ -467,24 +525,26 @@ footer a { color: #fff; }
   <section id="documents" aria-labelledby="docs-title">
     <div class="wrap">
       <h2 class="sec" id="docs-title">The documents it drafted</h2>
-      <p class="prose" style="margin:0">Starting drafts for counsel's review, in the order they would be adopted. Every open item is highlighted in Word, so nothing gets adopted with a blank in it.</p>
-      <ul class="key" aria-label="Highlight key">
-        <li><mark style="background:var(--hl-yellow)">Yellow</mark> a fact still to fill in</li>
-        <li><mark style="background:var(--hl-turq)">Turquoise</mark> a legal judgment for counsel</li>
-        <li><mark style="background:var(--hl-green)">Green</mark> filled in from a source, to confirm</li>
-      </ul>
-      <!-- PLACEHOLDER: example documents. For each tile, wrap the sheet + title in <a href="docs/NN Name.docx"> and change the status text to "Download (.docx)". -->
-      <ol class="docs" data-slot="example-docs">
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="y s"></i><i></i><i class="m"></i><i class="t"></i><i class="s"></i></div><h3>Resolution of intent</h3><p>Uniform method of collection</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i></i><i class="g m"></i><i></i><i class="s"></i></div><h3>Published notice</h3><p>Four weeks before the hearing</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="t"></i><i class="m"></i><i class="y s"></i><i></i><i class="m"></i><i class="s"></i></div><h3>Assessment ordinance</h3><p>The framework for the charge</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i></i><i class="y m"></i><i></i><i class="s"></i></div><h3>Methodology report</h3><p>Special benefit and fair apportionment</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i class="g"></i><i></i><i class="y s"></i><i class="m"></i><i class="t s"></i></div><h3>Initial assessment resolution</h3><p>Rates, roll and hearing date</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i></i><i class="y m"></i><i></i><i class="m"></i></div><h3>Hearing notices</h3><p>Mailed and published</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="t m"></i><i class="s"></i><i></i><i class="y s"></i></div><h3>Final assessment resolution</h3><p>Adopts the roll</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="y"></i><i></i><i class="s"></i></div><h3>Business impact estimate</h3><p>Posted before the ordinance vote</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="m"></i><i></i><i class="s"></i><i class="m"></i><i></i><i class="s"></i></div><h3>Agenda memo and public FAQ</h3><p>In plain words</p><span class="status">Example coming soon</span></li>
-        <li class="doc"><div class="sheet" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="g s"></i><i></i><i class="m"></i></div><h3>The plan memo</h3><p>Choices, trade-offs and calendar</p><span class="status">Example coming soon</span></li>
+      <p class="prose" style="margin:0">Sixteen starting drafts for the City Attorney's review, from that session, as Word files. Legal questions are marked <mark style="background:var(--hl-turq)">[COUNSEL DETERMINATION]</mark> and facts the public record doesn't show are left <mark style="background:var(--hl-yellow)">[in brackets]</mark>. Each draft carries a note that it's an independent demonstration.</p>
+      <p class="prose cite" style="margin:.8rem 0 0">These were made with an earlier test version of the skill. The current version fills in more blanks and highlights the rest in Word: yellow for a fact still to fill in, turquoise for a legal judgment, green for a fact to confirm.</p>
+      <div class="ctas" style="margin-top:1.2rem"><a class="btn btn-ghost" href="largo/largo-drafts.zip" download>Download all 16 (.zip)</a></div>
+      <ol class="docs">
+        <li class="doc"><a href="largo/docs/00-Plan-Memo.docx" download><div class="sheet" data-n="00" aria-hidden="true"><i class="m"></i><i class="y s"></i><i class="m"></i><i class="t"></i></div><h3>Plan memo</h3><p>The short version, three packages, who pays more and less</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/00a-Decision-Log.docx" download><div class="sheet" data-n="00a" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="g m"></i><i class="s"></i></div><h3>Decision log</h3><p>What was decided, and why, in the user&#x27;s words</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/01-Resolution-of-Intent.docx" download><div class="sheet" data-n="01" aria-hidden="true"><i class="m"></i><i class="y"></i><i class="m"></i><i class="t s"></i></div><h3>Resolution of intent</h3><p>Keeps a fire assessment possible on the 2027 tax bill</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/02-Notice-of-Intent.docx" download><div class="sheet" data-n="02" aria-hidden="true"><i class="s"></i><i class="y m"></i><i class="m"></i></div><h3>Published notice</h3><p>Four weekly notices before the hearing</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/03-Resolution-Creating-Recreation-Library-and-Cultural-Arts-Fund.docx" download><div class="sheet" data-n="03" aria-hidden="true"><i class="m"></i><i class="g"></i><i class="s"></i><i class="y m"></i></div><h3>No-property-tax fund</h3><p>Parks, library and arts paid from other revenue</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/04-Letter-to-Pinellas-County.docx" download><div class="sheet" data-n="04" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="t m"></i></div><h3>Letter to the county</h3><p>County EMS, fire and library money</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/05-Fire-Assessment-Methodology-Report-Outline.docx" download><div class="sheet" data-n="05" aria-hidden="true"><i class="m"></i><i class="y s"></i><i class="m"></i></div><h3>Fire assessment study outline</h3><p>What the study must prove</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/06-Master-Fire-Assessment-Ordinance.docx" download><div class="sheet" data-n="06" aria-hidden="true"><i class="m"></i><i class="t"></i><i class="s"></i><i class="y s"></i><i class="m"></i></div><h3>Fire assessment ordinance</h3><p>The framework for the charge</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/07-Business-Impact-Estimate-Fire-Assessment-Ordinance.docx" download><div class="sheet" data-n="07" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="y"></i><i class="s"></i></div><h3>Business impact estimate</h3><p>For the fire assessment ordinance</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/08-Recreation-Cultural-Arts-and-Facility-Fee-Ordinance.docx" download><div class="sheet" data-n="08" aria-hidden="true"><i class="m"></i><i class="y"></i><i class="t s"></i><i class="m"></i></div><h3>Recreation and arts fee ordinance</h3><p>Cost-recovery tiers and a ticket fee</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/09-Business-Impact-Estimate-Fee-Ordinance.docx" download><div class="sheet" data-n="09" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="y"></i></div><h3>Business impact estimate</h3><p>For the fee ordinance</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/10-Initial-Assessment-Resolution.docx" download><div class="sheet" data-n="10" aria-hidden="true"><i class="m"></i><i class="g"></i><i class="y s"></i><i class="t s"></i></div><h3>Initial assessment resolution</h3><p>Rates, roll and hearing date</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/11-Roll-Hearing-Notices.docx" download><div class="sheet" data-n="11" aria-hidden="true"><i class="s"></i><i class="y m"></i><i class="m"></i><i class="s"></i></div><h3>Hearing notices</h3><p>Mailed and published</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/12-Final-Assessment-Resolution.docx" download><div class="sheet" data-n="12" aria-hidden="true"><i class="m"></i><i class="t m"></i><i class="y s"></i></div><h3>Final assessment resolution</h3><p>Adopts the roll</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/13-Agenda-Memo-and-Public-FAQ.docx" download><div class="sheet" data-n="13" aria-hidden="true"><i class="s"></i><i class="m"></i><i class="g s"></i><i class="m"></i></div><h3>Agenda memo and public FAQ</h3><p>In plain words</p><span class="status">Word file</span></a></li>
+        <li class="doc"><a href="largo/docs/14-Public-Records-Requests.docx" download><div class="sheet" data-n="14" aria-hidden="true"><i class="m"></i><i class="y"></i><i class="s"></i><i class="m"></i></div><h3>Public records requests</h3><p>For the numbers still missing</p><span class="status">Word file</span></a></li>
       </ol>
     </div>
   </section>
@@ -495,12 +555,11 @@ footer a { color: #fff; }
       <p class="prose" style="margin:0">Free and open source under the MIT license. It's a folder of instructions, legal references, document templates and small Python scripts that an AI assistant follows.</p>
       <div class="get-grid">
         <div class="get-actions">
-          <!-- PLACEHOLDER: repo download. When live, replace each <span class="btn btn-off"> with an <a class="btn btn-primary" href="..."> and delete the "Link coming at launch" note. -->
-          <div class="unavailable" data-slot="repo-download">
-            <span class="btn btn-off">Download the skill (.zip)</span>
-            <span class="btn btn-off">View the source on GitHub</span>
+          <div class="unavailable">
+            <a class="btn btn-primary" href="downloads/florida-amendment3-revenue-replacement-v0.1.0-rc2.zip" download>Download the skill (.zip)</a>
+            <span class="btn btn-off">Source on GitHub: coming soon</span>
           </div>
-          <p class="cite" style="margin:0">Link coming at launch.</p>
+          <p class="cite" style="margin:0">Version 0.1.0-rc2, a release candidate. In Claude, add the zip under Settings, then Capabilities, then Skills.</p>
           <div class="caution">
             <p><strong>Before you start:</strong> in Florida, a chat about government business is likely a public record. Keep it, and leave out anything confidential or privileged. Board members shouldn't share or discuss the chat with each other outside a noticed meeting.</p>
           </div>
@@ -568,6 +627,19 @@ footer a { color: #fff; }
     options.classList.remove("pending");
     live.setAttribute("aria-live", "polite");
   }, 3600);
+})();
+
+(function () {
+  if (!document.documentElement.classList.contains("js") || !("IntersectionObserver" in window)) return;
+  var chat = document.getElementById("chat");
+  var items = chat.querySelectorAll(".chat-log > li");
+  chat.classList.add("armed");
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    items.forEach(function (li, i) { setTimeout(function () { li.classList.add("shown"); }, i * 380); });
+  }, { threshold: 0.2 });
+  io.observe(chat);
 })();
 </script>
 </body>
